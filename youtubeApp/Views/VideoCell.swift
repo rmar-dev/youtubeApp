@@ -1,45 +1,12 @@
 //
-//  ViewController.swift
+//  VideoCell.swift
 //  youtubeApp
 //
-//  Created by Ricardo Rabeto on 17/02/2018.
+//  Created by Ricardo Rabeto on 19/02/2018.
 //  Copyright © 2018 Ricardo Rabeto. All rights reserved.
 //
 
 import UIKit
-
-class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.title = "Home"
-        
-        collectionView?.backgroundColor = .white
-        
-        collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellid")
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-        
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = (view.frame.width - 32) * 9 / 16
-        return CGSize(width: view.frame.width, height: height + 84)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-}
 
 class VideoCell: UICollectionViewCell {
     override init(frame: CGRect) {
@@ -97,7 +64,7 @@ class VideoCell: UICollectionViewCell {
         
         addConstraintsWithFormat(format: "V:|-16-[v0]-8-[v1(44)]-16-[v2(1)]|", view: thumbnailImageView, userProfileImageView, seperatorView)
         
-         titleLabel.addAnchorsToView(top: thumbnailImageView.bottomAnchor, paddingTop: 8, right: thumbnailImageView.rightAnchor, paddingRight: 0, bottom: nil, paddingBottom: nil, left: userProfileImageView.rightAnchor, paddingLeft: 8, width: nil, height: 20)
+        titleLabel.addAnchorsToView(top: thumbnailImageView.bottomAnchor, paddingTop: 8, right: thumbnailImageView.rightAnchor, paddingRight: 0, bottom: nil, paddingBottom: nil, left: userProfileImageView.rightAnchor, paddingLeft: 8, width: nil, height: 20)
         
         subTitleLabel.addAnchorsToView(top: titleLabel.bottomAnchor, paddingTop: 4, right: thumbnailImageView.rightAnchor, paddingRight: 0, bottom: nil, paddingBottom: nil, left: userProfileImageView.rightAnchor, paddingLeft: 8, width: nil, height: 30)
         
@@ -107,8 +74,9 @@ class VideoCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
+    
 }
+
 
 
 

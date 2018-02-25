@@ -22,8 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
+        //remove the back bar underneath navbar
         UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
+        application.statusBarStyle = .lightContent
+        
+        let statusBarBackgroundView: UIView = {
+            let view = UIView()
+            view.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31)
+            return view
+        }()
+        
+        window?.addSubview(statusBarBackgroundView)
+        
+        statusBarBackgroundView.addAnchorsToView(top: window?.topAnchor, paddingTop: 0, right: window?.rightAnchor, paddingRight: 0, bottom: nil, paddingBottom: nil, left: window?.leftAnchor, paddingLeft: 0, width: nil, height: 20)
         return true
     }
 
